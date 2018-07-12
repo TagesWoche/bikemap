@@ -1,0 +1,63 @@
+/**
+ * @author Stephan Kroppenstedt <stephan.kroppenstedt@palasthotel.de>
+ * @modified 19.03.2017
+ */
+
+
+
+@mixin link-no-underline() {
+  a {
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $color__primary;
+
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+      background: transparent linear-gradient(90deg, $color__primary, $color__primary) no-repeat 0 100%;
+      background-size: 100% 6%;
+    }
+    &:focus {
+      outline: thin dotted;
+    }
+    &:hover,
+    &:active {
+      outline: 0;
+    }
+  }
+}
+
+@mixin link-with-underline() {
+  a {
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $color__primary;
+
+      background: transparent linear-gradient(90deg, rgba($color__primary, .4), rgba($color__primary, .4)) no-repeat 0 100%;
+      background-size: 100% 5%;
+      text-decoration: none;
+      transition: background .3s;
+
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+      background: transparent linear-gradient(90deg, $color__primary, $color__primary) no-repeat 0 100%;
+      background-size: 100% 6%;
+    }
+    &:focus {
+      outline: thin dotted;
+    }
+    &:hover,
+    &:active {
+      outline: 0;
+    }
+  }
+}

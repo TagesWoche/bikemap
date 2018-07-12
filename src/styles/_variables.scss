@@ -3,10 +3,76 @@ $modularscale: (
   ratio: 1.125
 );
 
-$color__white: #FFF;
-$color__border: #000;
+// Text Colors
+
+// Color Scheme Default / Nostalgie
+
 $color__primary: rgb(48, 163, 112);
-$color__black: #000;
+
+$default__color: rgb(48, 163, 112);
+
+$color__corporate-color: rgb(48, 163, 112);
+
+$color__white: rgba(255, 255, 255, 1.0);
+
+$color__gray--lighter: rgb(241, 241, 241);
+$color__gray--light: rgb(154, 154, 154);
+$color__gray: rgb(120, 120, 120);
+$color__gray--dark: rgb(51, 51, 51);
+$color__gray--darker: rgb(17, 17, 17);
+$color__black: rgba(0, 0, 0, 1.0);
+
+$color__text--headline: rgb(34, 34, 34);
+
+//
+
+$color__input--background: rgba($color__gray--lighter, .4);
+$color__input--border: rgba($color__gray--light, .4);
+
+$color__password-indicator--0: rgb(255, 0, 0);
+$color__password-indicator--1: rgb(255,69,0);
+$color__password-indicator--2: rgb(255,127,80);
+$color__password-indicator--3: rgb(0, 185, 0);
+$color__password-indicator--4: $color__corporate-color;
+
+
+
+$color__form--error: rgb(255, 0, 0);
+$color__form--message: rgb(0, 185, 0);
+$color__form--info: rgb( 220, 190, 0 );
+
+
+$color__input-error: red;
+
+$color__comments-border: rgba($color__gray--light, .3);
+
+$color__border: rgba(0, 0, 0, 1);
+
+$color__notification: red;
+
+// Social Media Colors
+
+$color__facebook: #3b5998;
+$color__twitter: #55acee;
+$color__whatsapp: #4dc247;
+$color__googleplus: #dd4b39;
+$color__pinterest: #cc2127;
+$color__tumblr: #35465c;
+$color__youtube: #cd201f;
+$color__vimeo: #1ab7ea;
+$color__soundcloud: #ff8800;
+$color__linkedin: #0077b5;
+$color__xing: #cfdc00;
+$color__disqus: #2e9fff;
+$color__instagram: #f56040;
+$color__flattr: rgb(140, 194, 53);
+$color__bitcoin: #FF9900;
+$color__paypal: rgb(0, 121, 193);
+$color__rss: rgb(232, 153, 36);
+$color__instagram: rgb(205, 72, 107);
+
+
+// breakpoints
 
 $breakpoint--m:     769px;
 $breakpoint--l:     960px;

@@ -198,32 +198,16 @@ iframe {
   margin: 0px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-
+html {
+    font-family: "PT Serif",serif;
+    font-size: 62.5%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
-
-h1 {
-
+body {
   margin: 0;
-}
-
-h2 {
-  margin: 0;
-}
-
-h3 {
-  margin: 0;
-}
-
-h4 {
-
-}
-
-h5 {
-
-}
-
-h6 {
-
+  font-size: 1.6rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
