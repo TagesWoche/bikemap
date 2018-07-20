@@ -3,7 +3,9 @@ import mapboxgl from 'mapbox-gl';
 import { select, selectAll } from 'd3-selection';
 
 // mapboxgl.accessToken =  'pk.eyJ1IjoiZmVsaXhtaWNoZWwiLCJhIjoiZWZrazRjOCJ9.62fkOEqGMxFxJZPJuo2iIQ'; Felix Schlüssel
-mapboxgl.accessToken = 'pk.eyJ1IjoidGFnZXN3b2NoZSIsImEiOiJjamp0cHc2ZTIwOWtiM3BxaDU3aG44endjIn0.X3Tgu7aJyY0t-95wu518fQ'; //Berlin Morgenpost
+mapboxgl.accessToken =  'pk.eyJ1IjoidGFnZXN3b2NoZSIsImEiOiJjamp0cHc2ZTIwOWtiM3BxaDU3aG44endjIn0.X3Tgu7aJyY0t-95wu518fQ'; // TagesWoche Schlüssel
+
+// mapboxgl.accessToken = 'pk.eyJ1IjoiYmVybGluZXJtb3JnZW5wb3N0IiwiYSI6Ik93Q3pCbWsifQ.-e0ddIaG2WuJdsA-TLeX5A'; //Berlin Morgenpost
 
 var filterObject = {'severity': 'all', 'accidentype': 'Alle Unfälle' };
 
@@ -40,7 +42,8 @@ const severity = selectAll("input[name='severity']").on("change", function() {
 
 const map = new mapboxgl.Map({
     container: 'mapViz',
-    style: 'mapbox://styles/berlinermorgenpost/cjgqes6dr007r2rsbql0cy3my',
+    style: 'mapbox://styles/tageswoche/cjjtq37gn01v32sqm5cv1004c',
+    // style: 'mapbox://styles/berlinermorgenpost/cjgqes6dr007r2rsbql0cy3my', MOPO
     zoom: 13,
     center: [7.588576,47.559648],
     scrollZoom      : false,
