@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import { select, selectAll } from 'd3-selection';
 
 // mapboxgl.accessToken =  'pk.eyJ1IjoiZmVsaXhtaWNoZWwiLCJhIjoiZWZrazRjOCJ9.62fkOEqGMxFxJZPJuo2iIQ'; Felix Schlüssel
-mapboxgl.accessToken = 'pk.eyJ1IjoiYmVybGluZXJtb3JnZW5wb3N0IiwiYSI6Ik93Q3pCbWsifQ.-e0ddIaG2WuJdsA-TLeX5A'; //Berlin Morgenpost
+mapboxgl.accessToken = 'pk.eyJ1IjoidGFnZXN3b2NoZSIsImEiOiJjamp0cHc2ZTIwOWtiM3BxaDU3aG44endjIn0.X3Tgu7aJyY0t-95wu518fQ'; //Berlin Morgenpost
 
 var filterObject = {'severity': 'all', 'accidentype': 'Alle Unfälle' };
 
