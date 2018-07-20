@@ -28,6 +28,8 @@
   & h2 {
     font-size: ms(5);
     line-height: 1.2;
+    margin:0;
+    padding: 36px 0 0 5px;
   }
   @include breakpoint($breakpoint--m) {
     margin: 10px;
@@ -36,12 +38,7 @@
   }
 }
 
-#filteroverlay svg {
-    width: 25%;
-    position: absolute;
-    right: 5%;
-    top: 0;
-}
+
 
 /* Styling the Dropdown */
 .profil-form__select::after {
@@ -169,6 +166,14 @@
     border-color:#30a370;
 }
 
+.profil-form__select select {
+    padding: 4px 10px;
+}
+
+.profil-form__select:after {
+    top:11px;
+}
+
 /* sticky shizzle */
 
  .filler {
@@ -272,7 +277,68 @@
 
 }
 
+#uhrzeitSlider {
+    padding-bottom: 17px; 
+}
 
+.minimize p {
+    text-align:right;
+    margin:0 8px 8px 0;
+}
+
+.minimize:after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    transform: rotate(-45deg);
+    border: 5px solid white;
+    border-right: 5px solid #3e3e3e;
+    border-top: 5px solid #3e3e3e;
+    right: 10px;
+    top:13px;
+}
+
+/* Layout Options */
+#filteroverlay {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    bottom:0;
+    }
+
+#filteroverlay svg {
+    height:90px;
+    
+}
+
+#filteroverlay > div:last-child {
+    margin-bottom:30px;
+}
+
+.widget {
+    flex:1 100%;
+}
+
+.rowflex {
+    display: flex;
+    flex-direction: row;
+    
+}
+.between {
+    justify-content: space-between;
+}
+
+.left {
+    justify-content: flex-start;
+}
+
+.halfwidget {
+    width:45%;
+    
+}
 
 /*h1 {
   @include NeueHaasGrotDisp-65Medium-Web;
