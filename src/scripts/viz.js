@@ -79,7 +79,7 @@ map.on('style.load', function () {
             'circle-color': {
                 property: 'severity',
                 type: 'categorical',
-                stops: [['Unfall mit Leichtverletzten', '#35FDFF'], ['Unfall mit Schwerverletzten', '#FF8135'], ['Unfall mit Getöteten', '#B24F13']]
+                stops: [['Unfall mit Leichtverletzten', '#35FDFF'], ['Unfall mit Schwerverletzten', '#58f235'], ['Unfall mit Getöteten', '#58f235']]
             },
             'circle-blur': 1
         },

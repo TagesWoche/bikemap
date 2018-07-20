@@ -36,6 +36,13 @@
   }
 }
 
+#filteroverlay svg {
+    width: 25%;
+    position: absolute;
+    right: 5%;
+    top: 0;
+}
+
 /* Styling the Dropdown */
 .profil-form__select::after {
   border-color:#383838;
@@ -52,7 +59,12 @@
 
 .profil-form__select select {
   width:100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
 }
+
 
 /* Styling the Slider */
 /* The slider itself */
