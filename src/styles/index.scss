@@ -11,32 +11,8 @@
 /*#map { position:absolute; top:0; bottom:0; width:100%; height: 100%;}*/
 
 
-#filteroverlay {
-  font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
-  color: white;
-  position: absolute;
-  min-width: 100%;
-  min-height: 100%;
-  overflow: scroll;
-  margin: 0;
-  padding: 10px 20px;
-  background: #3e3e3e; /* Old browsers */
-  background: -moz-linear-gradient(top, #3e3e3e 20%, #171717 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #3e3e3e 20%,#171717 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #3e3e3e 20%,#171717 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e3e3e', endColorstr='#171717',GradientType=0 ); /* IE6-9 */  
-  & h2 {
-    font-size: ms(5);
-    line-height: 1.2;
-    margin:0;
-    padding: 36px 0 0 5px;
-  }
-  @include breakpoint($breakpoint--m) {
-    margin: 10px;
-    min-width: 300px;
-    min-height: 300px;
-  }
-}
+
+  
 
 
 
@@ -70,7 +46,7 @@
   appearance: none;
   /* min-width:320px; */
   max-width: 100%;
-  width:250px;
+  width:100%;
   height: 2px; 
   background: #d3d3d3;
   background: linear-gradient(to right, #f4f4f4 0%,#e3e3e3 50%,#f4f4f4 100%);
@@ -281,12 +257,9 @@
     padding-bottom: 17px; 
 }
 
-.minimize p {
-    text-align:right;
-    margin:0 8px 8px 0;
-}
 
-.minimize:after {
+
+.closelegend:after {
     position: absolute;
     display: block;
     content: "";
@@ -300,7 +273,7 @@
     top:13px;
 }
 
-/* Layout Options */
+/* Layout Options WITH FLEX 
 #filteroverlay {
     display: flex;
     flex-direction: column;
@@ -340,6 +313,78 @@
     
 }
 
+*/
+
+/* Layout Option with Grid */
+
+#filteroverlay {
+    max-width:500px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: auto;
+    grid-column-gap: 20px;
+    grid-template-areas: 
+        "closelegend closelegend"
+        "title title"
+        "unfallart unfallart"
+        "wochentag wochentag"
+        "unfallschwere unfallschwere"
+        "uhrzeit jahre";
+    bottom:0;
+    font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
+    color: white;
+    position: absolute;
+    margin: 0;
+    padding: 10px 20px;
+    background: grey;
+        & h2 {
+            font-size: ms(5);
+            line-height: 1.2;
+            margin:0;
+            padding: 36px 0 0 5px;
+        }
+            @include breakpoint($breakpoint--m) {
+            margin: 10px;
+            min-width: 300px;
+            min-height: 300px;
+        }
+}
+
+
+.closelegend {
+    grid-area:closelegend;
+    display:grid;
+    grid-template-columns:auto 30px;
+}
+.closelegend p {
+    justify-self:right;
+    margin:0 0 8px 0;
+}
+.title {
+    grid-area:title;
+    display:grid;
+    grid-template-columns:30% 70%;
+}
+.unfallart {
+    grid-area:unfallart;
+}
+.wochentag {
+    grid-area:wochentag;
+}
+.unfallschwere {
+    grid-area:unfallschwere;
+}
+.uhrzeit {
+    grid-area:uhrzeit;
+}
+.jahre {
+    grid-area:jahre;
+}
+
+#filteroverlay svg {
+    height:90px;
+    
+}
 /*h1 {
   @include NeueHaasGrotDisp-65Medium-Web;
   font-size: ms(8);
