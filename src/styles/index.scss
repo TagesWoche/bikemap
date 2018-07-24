@@ -138,8 +138,8 @@
   background-color: #30a370;
   -webkit-box-shadow: none;
   box-shadow: none;
-    color:white !important;
-    border-color:#30a370;
+  color:white !important;
+  border-color:#30a370;
 }
 
 .profil-form__select select {
@@ -326,8 +326,7 @@
     grid-template-areas: 
         "closelegend closelegend"
         "title title"
-        "unfallart unfallart"
-        "wochentag wochentag"
+        "wochentag unfallart"
         "unfallschwere unfallschwere"
         "uhrzeit jahre";
     bottom:0;

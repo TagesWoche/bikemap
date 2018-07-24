@@ -3,7 +3,7 @@ const { deploy } = require('sftp-sync-deploy');
 let config = {
   host: 'c160s.freistilbox.net',            // Required.
   username: 's1996',               // Required.
-  privateKey: '~/.ssh/palasthotel', // Optional.
+  privateKey: 'Users/felix/.ssh/palasthotel', // Optional.
   localDir: 'dist',               // Required, Absolute or relative to cwd.
   remoteDir: '/glfs/fbsites/c11000/s1996/shared/public/docroot/2018/bikemap'      // Required, Absolute path only.
 };
