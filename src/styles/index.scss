@@ -28,6 +28,8 @@
   margin:0;
   display:inline-block;
   border-color:white;
+  
+  border: 1px solid #585858;
 }
 
 .profil-form__select select {
@@ -36,8 +38,10 @@
   -moz-appearance: none;
   text-indent: 1px;
   text-overflow: '';
+    font-size: 16px;
+  color: #d5d5d5;
 }
-
+ 
 
 /* Styling the Slider */
 /* The slider itself */
@@ -45,8 +49,7 @@
   -webkit-appearance: none;  
   appearance: none;
   /* min-width:320px; */
-  max-width: 100%;
-  width:100%;
+  width:50%;
   height: 2px; 
   background: #d3d3d3;
   background: linear-gradient(to right, #f4f4f4 0%,#e3e3e3 50%,#f4f4f4 100%);
@@ -54,6 +57,7 @@
   opacity: 1; 
   -webkit-transition: .2s;
   transition: opacity .2s;
+  margin-top:33px;
 }
 
 /* Mouse-over effects */
@@ -69,11 +73,11 @@
   height: 30px;
   border-radius:99px;
   border:1px solid white;
-  background: #30a370; /* Old browsers */
-  background: -moz-radial-gradient(center, ellipse cover, #2A8C63 0%, #30a370 100%); /* FF3.6-15 */
-  background: -webkit-radial-gradient(center, ellipse cover, #2A8C63 0%,#30a370 100%); /* Chrome10-25,Safari5.1-6 */
-  background: radial-gradient(ellipse at center, #2A8C63 0%,#30a370 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2A8C63', endColorstr='#30a370',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  background: #161616; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #2d2d2d 0%, #161616 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, #2d2d2d 0%,#161616 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, #2d2d2d 0%,#161616 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d2d2d', endColorstr='#161616',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
   cursor: pointer;
 }
 
@@ -82,14 +86,15 @@
   height: 30px;
   border-radius:99px;
   border:1px solid white;
-  background: #30a370; /* Old browsers */
-  background: -moz-radial-gradient(center, ellipse cover, #2A8C63 0%, #30a370 100%); /* FF3.6-15 */
-  background: -webkit-radial-gradient(center, ellipse cover, #2A8C63 0%,#30a370 100%); /* Chrome10-25,Safari5.1-6 */
-  background: radial-gradient(ellipse at center, #2A8C63 0%,#30a370 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2A8C63', endColorstr='#30a370',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  background: #161616; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #2d2d2d 0%, #161616 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, #2d2d2d 0%,#161616 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, #2A8C63 0%,#2d2d2d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d2d2d', endColorstr='#161616',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
   cursor: pointer; 
 }
 
+/* 
 .switch-field {
   overflow: hidden;
 }
@@ -135,11 +140,11 @@
 }
 
 .switch-field input:checked + label {
-  background-color: #30a370;
+  background-color: #161616;
   -webkit-box-shadow: none;
   box-shadow: none;
   color:white !important;
-  border-color:#30a370;
+  border-color:#161616;
 }
 
 .profil-form__select select {
@@ -149,6 +154,8 @@
 .profil-form__select:after {
     top:11px;
 }
+
+*/
 
 /* sticky shizzle */
 
@@ -203,7 +210,7 @@
     margin-bottom:15px;
     line-height:36px;
     padding: 1rem 0;
-    background:#30a370;
+    background:#161616;
     text-shadow: none;
 }
 
@@ -317,25 +324,26 @@
 
 /* Layout Option with Grid */
 
+
 #filteroverlay {
     max-width:500px;
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:1fr 1fr 1fr 2fr;
     grid-template-rows: auto;
     grid-column-gap: 20px;
     grid-template-areas: 
-        "closelegend closelegend"
-        "title title"
-        "wochentag unfallart"
-        "unfallschwere unfallschwere"
-        "uhrzeit jahre";
+        "closelegend closelegend closelegend closelegend"
+        "title title title title"
+        "unfallschwere unfallschwere unfallschwere unfallart"
+        "wochentag wochentag wochentag jahre"
+        "uhrzeit uhrzeit uhrzeit uhrzeit";
     bottom:0;
     font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
     color: white;
     position: absolute;
     margin: 0;
     padding: 10px 20px;
-    background: grey;
+    background: #161616;
         & h2 {
             font-size: ms(5);
             line-height: 1.2;
@@ -347,6 +355,10 @@
             min-width: 300px;
             min-height: 300px;
         }
+}
+
+#filteroverlay h3 {
+    font-weight:normal;
 }
 
 
@@ -376,6 +388,15 @@
 .uhrzeit {
     grid-area:uhrzeit;
 }
+
+//.uhrzeit h3 {
+//    display:inline-block;
+//    margin: 20px 0 0 0;
+//}
+
+//.uhrzeit h3 span {
+//    margin:0 0 0 52px;
+//}
 .jahre {
     grid-area:jahre;
 }
@@ -384,6 +405,121 @@
     height:90px;
     
 }
+
+
+/* Checkboxes */
+
+.tawo-checkbox {
+    position: relative;
+    font-size: 16px;
+    margin: 6px 15px 6px 0;
+    color: #2a2a2a;
+    display: inline-block;
+    border: 1px solid #000;
+    border-radius: 8px;
+    color: #d5d5d5;
+    padding:7px;
+}
+
+.tawo-checkbox input[type="checkbox"] {
+    position: absolute;
+    visibility: hidden;
+}
+
+.tawo-checkbox label {
+    cursor: pointer;
+    position: relative;
+    padding-left: 26px;
+}
+
+.tawo-checkbox input[type="checkbox"]+label:before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border: 1px solid #d5d5d5;
+    transition: all 0.5s;
+    position: absolute;
+    left: 0;
+}
+
+.tawo-checkbox:hover input[type="checkbox"]+label:before,
+.tawo-checkbox input[type="checkbox"]:checked+label:before {
+    border: 1px solid #2a2a2a;
+}
+
+.tawo-checkbox input[type="checkbox"]:checked+label:after {
+    content: '';
+    background:url('../img/check-solid.svg') no-repeat;
+    background-size:10px 10px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    text-align: center;
+    display: block;
+    height: 10px;
+    width: 10px;
+}
+
+.tawo-checkbox:hover {
+    background:#2a2a2a;
+    
+}
+
+.tawo-checkbox input[type="checkbox"]+label:before {
+    background-color: #000;
+    border-color: #000;
+}
+
+.tawo-checkbox input[type="checkbox"]+label:hover:before,
+.tawo-checkbox input[type="checkbox"]:checked+label:before {
+    border-color: #d5d5d5;
+}
+
+.tawo-checkbox input[type="checkbox"]:checked+label:after {
+    color: #d5d5d5;
+}
+
+.tawo-checkbox input[type="checkbox"]+label:after {
+        color: #000;
+    }
+
+.tawo-checkbox input[type="checkbox"]:checked+label[for="leichtverletzte"]:before {
+        background-color: #35FDFF;
+    }
+
+.tawo-checkbox input[type="checkbox"]:checked+label[for="schwerverletzte"]:before {
+        background-color: #43d722;
+    }
+
+.tawo-checkbox input[type="checkbox"]:checked+label[for="tote"]:before {
+        background-color: #e60000;
+    }
+
+
+.tawo-checkbox input[type="checkbox"]+label:before {
+        background-color: rgba(226, 230, 229, 0.5);
+        border-radius: 10px
+    }
+
+
+// Buttons Styling Test
+.buttoni input[type="checkbox"]+label:before, .buttoni input[type="checkbox"]:checked + label:after {
+    display:none;
+}
+
+.buttoni label {
+    padding:0;
+}
+
+.buttoni {
+    margin:0 2px 0 0;
+    width: 24%;
+    text-align: center;
+}
+
+.buttoni input[type="checkbox"]:checked + div:has(.buttoni) {
+        background-color: red;
+    }
 /*h1 {
   @include NeueHaasGrotDisp-65Medium-Web;
   font-size: ms(8);
