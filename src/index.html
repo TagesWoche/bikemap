@@ -53,16 +53,16 @@
             <h3>Unfallart</h3>
             <div class='profil-form__select' id='accidenttypeMenu'></div>
           </div>
-        <div id='accidentday' class='wochentag switch-field'>
+        <div id='accidentday' class='wochentag buttoni'>
           <h3>Tag der Woche</h3>
-            <div class="tawo-checkbox">
-              <input type="checkbox" id="wochenende" value="on" name="accidentday">
+            
+            <input type="checkbox" id="wochenende" value="on" name="severity">
               <label for="wochenende" class="checkbox">Wochenende</label>
-            </div>
-            <div class="tawo-checkbox">
-              <input type="checkbox" id="wochentage" value="on" name="accidentday">
+
+              <input type="checkbox" id="wochentage" value="on" name="severity">
               <label for="wochentage" class="checkbox">Wochentage</label>
-            </div>  
+            
+            
             
 <!--
           <input type='radio' value='all' id='all' checked name='accidentday' />
@@ -73,18 +73,18 @@
           <label for='wochentage'>Wochentage</label>
 -->
         </div>
-        <div id='severity' class='unfallschwere switch-field'>
+        <div id='severity' class='unfallschwere'>
           <h3>Unfallschwere</h3>
             <div class="tawo-checkbox">
-              <input type="checkbox" id="tote" value="on" name="severity">
+              <input type="checkbox" id="tote" value="on" name="severity" checked>
               <label for="tote" class="checkbox">Tote</label>
             </div>
             <div class="tawo-checkbox">
-              <input type="checkbox" id="schwerverletzte" value="on" name="severity">
+              <input type="checkbox" id="schwerverletzte" value="on" name="severity" checked>
               <label for="schwerverletzte" class="checkbox">Schwerverletzte</label>
             </div>
             <div class="tawo-checkbox">
-              <input type="checkbox" id="leichtverletzte" value="on" name="severity">
+              <input type="checkbox" id="leichtverletzte" value="on" name="severity" checked>
               <label for="leichtverletzte" class="checkbox">Leichtverletzte</label>
             </div>
             
@@ -100,30 +100,21 @@
 -->
         </div>
         
-        <div id='uhrzeitSlider' class='uhrzeit'>
+        <div id='uhrzeitSlider' class='uhrzeit buttoni'>
           <h3>Tageszeit</h3>
-            <div class="tawo-checkbox buttoni">
+
               <input type="checkbox" id="morgen" value="on" name="severity">
               <label for="morgen" class="checkbox">Morgen</label>
-            </div>
-            <div class="tawo-checkbox buttoni">
+
               <input type="checkbox" id="mittag" value="on" name="severity">
               <label for="mittag" class="checkbox">Mittag</label>
-            </div>
-            <div class="tawo-checkbox buttoni">
+
               <input type="checkbox" id="abend" value="on" name="severity">
               <label for="abend" class="checkbox">Abend</label>
-            </div>
-            <div class="tawo-checkbox buttoni">
+
               <input type="checkbox" id="nacht" value="on" name="severity">
               <label for="nacht" class="checkbox">Nacht</label>
-            </div>
-            
-            
-<!--
-            <h3>Uhrzeit: <span id='uhrzeit'>14 Uhr</span></h3>
-          <input class='slider' id='unfalluhrzeit' type='range' min={1} max={24} step={1} value='5' />
--->
+
         </div>
           
           

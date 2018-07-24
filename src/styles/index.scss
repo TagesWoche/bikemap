@@ -252,9 +252,9 @@
   height: 100%;
 }
 
-#uhrzeitSlider {
-    padding-bottom: 17px; 
-}
+//#uhrzeitSlider, .wochentag {
+//    padding-bottom: 17px; 
+//}
 
 
 
@@ -320,15 +320,15 @@
 #filteroverlay {
     max-width:500px;
     display:grid;
-    grid-template-columns:1fr 1fr 1fr 2fr;
+    grid-template-columns:3fr 2fr;
     grid-template-rows: auto;
     grid-column-gap: 20px;
     grid-template-areas: 
-        "closelegend closelegend closelegend closelegend"
-        "title title title title"
-        "unfallschwere unfallschwere unfallschwere unfallart"
-        "wochentag wochentag wochentag jahre"
-        "uhrzeit uhrzeit uhrzeit uhrzeit";
+        "closelegend closelegend"
+        "title title"
+        "unfallschwere unfallart"
+        "wochentag jahre"
+        "uhrzeit uhrzeit";
     bottom:0;
     font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
     color: white;
@@ -366,19 +366,23 @@
 .title {
     grid-area:title;
     display:grid;
-    grid-template-columns:30% 70%;
+    grid-template-columns:3fr 7fr;
 }
 .unfallart {
     grid-area:unfallart;
 }
 .wochentag {
     grid-area:wochentag;
-}
+    display:grid;
+    grid-template-columns:1fr 1fr;
+} 
 .unfallschwere {
     grid-area:unfallschwere;
 }
 .uhrzeit {
     grid-area:uhrzeit;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
 }
 
 //.uhrzeit h3 {
@@ -407,10 +411,11 @@
     margin: 6px 15px 6px 0;
     color: #2a2a2a;
     display: inline-block;
-    border: 1px solid #000;
+//    border: 1px solid #000;
     border-radius: 8px;
     color: #d5d5d5;
     padding:7px;
+    transition:background 0.5s;
 }
 
 .tawo-checkbox input[type="checkbox"] {
@@ -495,39 +500,49 @@
 
 
 // Buttons Styling Test
-.buttoni input[type="checkbox"]+label:before, .buttoni input[type="checkbox"]:checked + label:after {
-    display:none;
+.uhrzeit h3 {
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+.wochentag h3 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.buttoni input[type="checkbox"] {
+    visibility:hidden;
+    position: absolute;
 }
 
 .buttoni label {
-    padding:0;
+    cursor: pointer;
+    position: relative;
+    text-align:center;
+    border: 1px solid #d5d5d5;
+    border-radius:3px;
 }
 
-.buttoni {
-    margin:0 2px 0 0;
-    width: 24%;
-    text-align: center;
+.uhrzeit label {
+    width:94%;
+    padding:4px 1%;
 }
 
-.buttoni input[type="checkbox"]:checked + div:has(.buttoni) {
-        background-color: red;
-    }
-/*h1 {
-  @include NeueHaasGrotDisp-65Medium-Web;
-  font-size: ms(8);
-  line-height: 1.2;
-  @include breakpoint($breakpoint--m) {
-    font-size: ms(11);
-  }
+.wochentag label {
+    width:93%;
+    padding:4px 0;
+}
+.buttoni label:hover {
+    background:#d5d5d5;
+    color:black;
 }
 
-h2 {
-  @include NeueHaasGrotDisp-65Medium-Web;
-  font-size: ms(5);
-  line-height: 1.2;
-  margin-bottom: 20px;
-  margin-top: 60px;
-}*/
+.buttoni input[type="checkbox"]:checked + label  {
+        background:#d5d5d5;
+    color:black;
+}
+
+// POPUP TIME
 
 .mapboxgl-popup-content {
   min-width: 250px;
