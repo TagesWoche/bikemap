@@ -10,12 +10,6 @@
 
 /*#map { position:absolute; top:0; bottom:0; width:100%; height: 100%;}*/
 
-
-
-  
-
-
-
 /* Styling the Dropdown */
 .profil-form__select::after {
   border-color:#383838;
@@ -245,12 +239,10 @@
   top: 0;
   bottom: 0;
   width: 100%;
-  height: 100vh;
 }
 
 .mapboxgl-canvas {
   height: 100%;
-
 }
 
 #uhrzeitSlider {
@@ -400,3 +392,43 @@ h2 {
   margin-bottom: 20px;
   margin-top: 60px;
 }*/
+
+.mapboxgl-popup-content {
+  min-width: 250px;
+  border-radius: 0 !important;
+  opacity: 0.9;
+}
+
+.mapboxgl-popup-tip {
+  opacity: 0.9;
+}
+
+.popup-accidenttype {
+  font-size: 14px;
+  &::before {
+  vertical-align: middle;
+  display: inline-block;
+  content: ' ';
+  background-image: url('../../src/img/wheel.svg');
+  background-size: 28px 28px;
+  height: 28px;
+  width: 28px;
+  margin-right: 10px;
+  }
+}
+
+.popup-time {
+  font-size: 14px;
+  &::before {
+  vertical-align: middle;
+  display: inline-block;
+  content: ' ';
+  background-image: url('../../src/img/clock.svg');
+  background-size: 25px 25px;
+  height: 25px;
+  width: 25px;
+  margin-right: 10px;
+  }
+}
+
+

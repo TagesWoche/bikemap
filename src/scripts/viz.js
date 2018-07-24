@@ -60,7 +60,7 @@ map.on('style.load', function () {
 
     map.addSource('all_accidents', {
     type: 'vector',
-    url: 'mapbox://felixmichel.cjj5m8gj406u82qt9qo5gwrzh-2q5e0'
+    url: 'mapbox://felixmichel.cjjzrdwxm03d92vnvcgajbo6k-03u8i'
     });
     map.addLayer({
         'id': 'all_accidents',
@@ -129,7 +129,8 @@ function filterbySeverity(accident) {
 // Create a popup, but don't add it to the map yet.
     var popup = new mapboxgl.Popup({
         closeButton: false,
-        closeOnClick: false
+        closeOnClick: true
+        // offset: [50, 10]
     });
 
     map.on('mouseenter', layerIds[0], function(e) {
@@ -140,6 +141,8 @@ function filterbySeverity(accident) {
         var coordinates = e.features[0].geometry.coordinates.slice();
 
         var accidenttype = e.features[0].properties.accidenttype;
+        var severity = e.features[0].properties.severity;
+        var time = e.features[0].properties.day.trim() + ', ' + e.features[0].properties.time.trim() + ', ' + e.features[0].properties.year;
 
         // Ensure that if the map is zoomed out such that multiple
         // copies of the feature are visible, the popup appears
@@ -151,9 +154,10 @@ function filterbySeverity(accident) {
         // Populate the popup and set its coordinates
         // based on the feature found.
         popup.setLngLat(coordinates)
-            .setHTML(accidenttype)
+            .setHTML('<h2>' + severity + '</h2><p class="popup-accidenttype">' + accidenttype + '</p><p class="popup-time">' + time + '</p>')
             .addTo(map);
     });
+
 
     map.on('mouseleave', layerIds[0], function() {
         map.getCanvas().style.cursor = '';
