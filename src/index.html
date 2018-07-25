@@ -57,15 +57,15 @@
         <div id='severity' class='unfallschwere'>
             <h3>Unfallschwere</h3>
             <div class="tawo-checkbox">
-                <input type="checkbox" id="tote" value="on" name="severity" checked>
+                <input type="checkbox" id="tote" value="Unfall mit Getöteten" name="severity" checked>
                 <label for="tote" class="checkbox">Tote</label>
             </div>
             <div class="tawo-checkbox">
-                <input type="checkbox" id="schwerverletzte" value="on" name="severity" checked>
+                <input type="checkbox" id="schwerverletzte" value="Unfall mit Schwerverletzten" name="severity" checked>
                 <label for="schwerverletzte" class="checkbox">Schwerverletzte</label>
             </div>
             <div class="tawo-checkbox">
-                <input type="checkbox" id="leichtverletzte" value="on" name="severity" checked>
+                <input type="checkbox" id="leichtverletzte" value="Unfall mit Leichtverletzten" name="severity" checked>
                 <label for="leichtverletzte" class="checkbox">Leichtverletzte</label>
             </div>
         </div>
@@ -79,36 +79,30 @@
 <!--          Wochentage          -->
         <div id='accidentday' class='wochentag tawo-button'>
             <h3>Tag der Woche</h3>
-            <input type="checkbox" id="wochenende" value="on" name="severity" checked>
+            <input type="checkbox" id="wochenende" value="Wochenende" name="day" checked>
             <label for="wochenende" class="checkbox">Wochenende</label>
-            <input type="checkbox" id="wochentage" value="on" name="severity" checked>
+            <input type="checkbox" id="wochentage" value="Wochentag" name="day" checked>
             <label for="wochentage" class="checkbox">Wochentage</label>
         </div>
 <!--          End Wochentage          -->   
 <!--          Jahre          -->          
         <div id="jahre" class="jahre">
             <h3>Jahre</h3>
-            <div class='profil-form__select' id='accidenttypeMenu'>
-                <select>
-                    <option value="Alle Unfälle">2011</option>
-                    <option value="Parkierunfall">2012</option>
-                    <option value="Einbiegeunfall">2013</option>
-                    <option value="Abbiegeunfall">2014</option>
-                </select>
+            <div class='profil-form__select' id='years'>
             </div>
         </div>
 <!--         End Jahre          -->       
 <!--          Tageszeit          -->
         <div id='uhrzeit' class='uhrzeit tawo-button'>
             <h3>Tageszeit</h3>
-            <input type="checkbox" id="morgen" value="on" name="severity" checked>
-            <label for="morgen" class="checkbox">Morgen</label>
-            <input type="checkbox" id="mittag" value="on" name="severity" checked>
-            <label for="mittag" class="checkbox">Mittag</label>
-            <input type="checkbox" id="abend" value="on" name="severity" checked>
-            <label for="abend" class="checkbox">Abend</label>
-            <input type="checkbox" id="nacht" value="on" name="severity" checked>
-            <label for="nacht" class="checkbox">Nacht</label>
+            <input type="checkbox" id="morgen" value="morgens" name="daytime" checked>
+            <label for="morgen" class="checkbox">morgens</label>
+            <input type="checkbox" id="mittag" value="mittags" name="daytime" checked>
+            <label for="mittag" class="checkbox">mittags</label>
+            <input type="checkbox" id="abend" value="abends" name="daytime" checked>
+            <label for="abend" class="checkbox">abends</label>
+            <input type="checkbox" id="nacht" value="nachts" name="daytime" checked>
+            <label for="nacht" class="checkbox">nachts</label>
         </div>
 <!--          End Tageszeit          -->        
    

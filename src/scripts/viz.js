@@ -17,7 +17,9 @@ var filterObject = {
 
 // Create a dropdown
 const accidenttypes = ['Alle Unfälle', 'Parkierunfall', 'Einbiegeunfall', 'Abbiegeunfall'];
+const yearArray = ['Alle Jahre', 2011, 2012, 2013, 2014, 2015, 2016, 2017]
 const accidenttypeMenu = select("#accidenttypeMenu");
+const yearMenu = select("#years");
 
 
 accidenttypeMenu.append("select").selectAll("option")
@@ -32,8 +34,29 @@ accidenttypeMenu.on('change', function() {
 
     filterObject.accidentype = selectedAccident;
     updateFilters();
+});
 
-    });
+yearMenu.append("select").selectAll("option")
+    .data(yearArray).enter().append("option")
+    .attr('value', d => d )
+    .text(d => d );
+
+yearMenu.on('change', function() {
+    let selectedYear = select(this)
+        .select("select")
+        .property("value");
+
+    if(selectedYear != 'Alle Jahre')  {
+        filterObject.year = parseFloat(selectedYear);
+    } else {
+        filterObject.year = selectedYear;
+    }
+
+    updateFilters();
+    console.log(filterObject);
+});
+
+
 
 const severity = selectAll("input[name='severity']").on("change", function() {
     var index = filterObject.severity.indexOf(this.value)
@@ -127,6 +150,7 @@ function updateFilters() {
     let severityFilter;
     let dayFilter;
     let dayTimeFilter;
+    let yearFilter;
 
     if(filterObject.daytime.length > 0) {
         dayTimeFilter = ['match', ['get', 'timefilter'], filterObject.daytime, true, false];
@@ -152,7 +176,13 @@ function updateFilters() {
         accidentTypeFilter = ['==', ['string', ['get', 'accidenttype']], filterObject.accidentype];
     }
 
-    map.setFilter(layerIds[0], ['all', severityFilter, accidentTypeFilter, dayFilter, dayTimeFilter]);
+    if(filterObject.year == 'Alle Jahre') {
+        yearFilter = ['!=', ['number', ['get', 'year']], 1];
+    } else {
+        yearFilter = ['==', ['number', ['get', 'year']], filterObject.year];
+    }
+
+    map.setFilter(layerIds[0], ['all', severityFilter, accidentTypeFilter, dayFilter, dayTimeFilter, yearFilter]);
 }
 
 // Create a popup, but don't add it to the map yet.
