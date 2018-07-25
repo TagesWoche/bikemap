@@ -379,6 +379,9 @@
         border-radius: 10px
     }
 
+.tawo-checkbox *, .tawo-button * {
+    user-select: none;
+}
 
 // Buttons Styling Test
 .uhrzeit h3 {
