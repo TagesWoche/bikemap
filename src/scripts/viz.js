@@ -15,9 +15,9 @@ var filterObject = {
     'year': 'Alle Jahre'
 };
 
-// Create a dropdown
-const accidenttypes = ['Alle Unfälle', 'Parkierunfall', 'Einbiegeunfall', 'Abbiegeunfall'];
-const yearArray = ['Alle Jahre', 2011, 2012, 2013, 2014, 2015, 2016, 2017]
+
+const accidenttypes = ['Alle Unfälle', 'Parkierunfall', 'Einbiegeunfall', 'Schleuder- oder Selbstunfall', 'Tierunfall', 'Überholunfall oder Fahrstreifenwechsel', 'Abbiegeunfall', 'Auffahrunfall', 'Frontalkollision', 'Überqueren der Fahrbahn', 'Fussgängerunfall', 'Andere'];
+const yearArray = ['Alle Jahre', 2011, 2012, 2013, 2014, 2015, 2016, 2017];
 const accidenttypeMenu = select("#accidenttypeMenu");
 const yearMenu = select("#years");
 
@@ -59,7 +59,7 @@ yearMenu.on('change', function() {
 
 
 const severity = selectAll("input[name='severity']").on("change", function() {
-    var index = filterObject.severity.indexOf(this.value)
+    var index = filterObject.severity.indexOf(this.value);
     if (index > -1) {
         filterObject.severity.splice(index, 1);
     } else {
@@ -71,7 +71,7 @@ const severity = selectAll("input[name='severity']").on("change", function() {
 });
 
 const day = selectAll("input[name='day']").on("change", function() {
-    var index = filterObject.day.indexOf(this.value)
+    var index = filterObject.day.indexOf(this.value);
     if (index > -1) {
         filterObject.day.splice(index, 1);
     } else {
@@ -83,14 +83,12 @@ const day = selectAll("input[name='day']").on("change", function() {
 });
 
 const daytime = selectAll("input[name='daytime']").on("change", function() {
-    var index = filterObject.daytime.indexOf(this.value)
+    var index = filterObject.daytime.indexOf(this.value);
     if (index > -1) {
         filterObject.daytime.splice(index, 1);
     } else {
         filterObject.daytime.push(this.value);
     }
-
-    console.log(filterObject);
 
     updateFilters();
 
