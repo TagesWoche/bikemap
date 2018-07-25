@@ -12,7 +12,7 @@
 
 /* Styling the Dropdown */
 .profil-form__select::after {
-  border-color:#383838;
+  border-color:#121212;
   border-bottom-color:white;
   border-left-color:white;
 }
@@ -23,7 +23,7 @@
   display:inline-block;
   border-color:white;
   
-  border: 1px solid #585858;
+  border: 1px solid #656565;
 }
 
 .profil-form__select select {
@@ -32,8 +32,9 @@
   -moz-appearance: none;
   text-indent: 1px;
   text-overflow: '';
-    font-size: 16px;
+  font-size: 16px;
   color: #d5d5d5;
+  padding:10px;
 }
  
 
@@ -88,69 +89,6 @@
   cursor: pointer; 
 }
 
-/* 
-.switch-field {
-  overflow: hidden;
-}
-
-.switch-title {
-  margin-bottom: 6px;
-}
-
-.switch-field input {
-  position: absolute !important;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  width: 1px;
-  border: 0;
-  overflow: hidden;
-}
-
-.switch-field label {
-  float: left;
-  color:black !important;
-}
-
-.switch-field label {
-  display: inline-block;
-  background-color: #f4f4f4;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 14px;
-  font-weight: normal;
-  text-align: center;
-  text-shadow: none;
-  padding: 6px 14px;
-  border: 1px solid #c7c7c7;
-  
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition:    all 0.1s ease-in-out;
-  -ms-transition:     all 0.1s ease-in-out;
-  -o-transition:      all 0.1s ease-in-out;
-  transition:         all 0.1s ease-in-out;
-}
-
-.switch-field label:hover {
-    cursor: pointer;
-}
-
-.switch-field input:checked + label {
-  background-color: #161616;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  color:white !important;
-  border-color:#161616;
-}
-
-.profil-form__select select {
-    padding: 4px 10px;
-}
-
-.profil-form__select:after {
-    top:11px;
-}
-
-*/
-
 /* sticky shizzle */
 
  .filler {
@@ -158,13 +96,6 @@
   text-align: center;
 }
 
-
-#scrolly-overlay .scrolly {
-  /*max-width: 100%;*/
-/*  margin: 3rem auto;*/
-  /*background-color: #f4f4f4;*/
-  /*padding: 1rem;*/
-}
 #scrolly-overlay .scrolly article {
   padding: 0;
   max-width: 50rem;
@@ -252,11 +183,6 @@
   height: 100%;
 }
 
-//#uhrzeitSlider, .wochentag {
-//    padding-bottom: 17px; 
-//}
-
-
 
 .closelegend:after {
     position: absolute;
@@ -266,53 +192,11 @@
     height: 0;
     transform: rotate(-45deg);
     border: 5px solid white;
-    border-right: 5px solid #3e3e3e;
-    border-top: 5px solid #3e3e3e;
+    border-right: 5px solid #121212;
+    border-top: 5px solid #121212;
     right: 10px;
     top:13px;
 }
-
-/* Layout Options WITH FLEX 
-#filteroverlay {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    bottom:0;
-    }
-
-#filteroverlay svg {
-    height:90px;
-    
-}
-
-#filteroverlay > div:last-child {
-    margin-bottom:30px;
-}
-
-.widget {
-    flex:1 100%;
-}
-
-.rowflex {
-    display: flex;
-    flex-direction: row;
-    
-}
-.between {
-    justify-content: space-between;
-}
-
-.left {
-    justify-content: flex-start;
-}
-
-.halfwidget {
-    width:45%;
-    
-}
-
-*/
 
 /* Layout Option with Grid */
 
@@ -334,8 +218,8 @@
     color: white;
     position: absolute;
     margin: 0;
-    padding: 10px 20px;
-    background: #161616;
+    padding: 10px 20px 30px 20px;
+    background: #121212;
         & h2 {
             font-size: ms(5);
             line-height: 1.2;
@@ -375,6 +259,7 @@
     grid-area:wochentag;
     display:grid;
     grid-template-columns:1fr 1fr;
+    grid-column-gap:12px;
 } 
 .unfallschwere {
     grid-area:unfallschwere;
@@ -383,16 +268,9 @@
     grid-area:uhrzeit;
     display:grid;
     grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-column-gap:12px;
 }
 
-//.uhrzeit h3 {
-//    display:inline-block;
-//    margin: 20px 0 0 0;
-//}
-
-//.uhrzeit h3 span {
-//    margin:0 0 0 52px;
-//}
 .jahre {
     grid-area:jahre;
 }
@@ -418,18 +296,18 @@
     transition:background 0.5s;
 }
 
-.tawo-checkbox input[type="checkbox"] {
+.tawo-checkbox input[type="checkbox"], .tawo-button input[type="checkbox"] {
     position: absolute;
     visibility: hidden;
 }
 
-.tawo-checkbox label {
+.tawo-checkbox label, .tawo-button label {
     cursor: pointer;
     position: relative;
-    padding-left: 26px;
+    padding: 10px 0 10px 26px;
 }
 
-.tawo-checkbox input[type="checkbox"]+label:before {
+.tawo-checkbox input[type="checkbox"]+label:before, .tawo-button input[type="checkbox"]+label:before {
     content: '';
     width: 18px;
     height: 18px;
@@ -437,6 +315,7 @@
     transition: all 0.5s;
     position: absolute;
     left: 0;
+    top: 10px;
 }
 
 .tawo-checkbox:hover input[type="checkbox"]+label:before,
@@ -444,12 +323,14 @@
     border: 1px solid #2a2a2a;
 }
 
-.tawo-checkbox input[type="checkbox"]:checked+label:after {
+.tawo-checkbox input[type="checkbox"]:checked+label:after, .tawo-button input[type="checkbox"]:checked+label:after {
     content: '';
-    background:url('../img/check-solid.svg') no-repeat;
+    background-color:black;
+    mask:url(../img/check-solid.svg) no-repeat;
+    -webkit-mask:url(../img/check-solid.svg) no-repeat;
     background-size:10px 10px;
     position: absolute;
-    top: 4px;
+    top: 14px;
     left: 4px;
     text-align: center;
     display: block;
@@ -457,8 +338,8 @@
     width: 10px;
 }
 
-.tawo-checkbox:hover {
-    background:#2a2a2a;
+.tawo-checkbox:hover, .tawo-button label:hover {
+    background:#202020;
     
 }
 
@@ -493,7 +374,7 @@
     }
 
 
-.tawo-checkbox input[type="checkbox"]+label:before {
+.tawo-checkbox input[type="checkbox"]+label:before, .tawo-button input[type="checkbox"]+label:before {
         background-color: rgba(226, 230, 229, 0.5);
         border-radius: 10px
     }
@@ -510,38 +391,39 @@
     grid-column-end: 3;
 }
 
-.buttoni input[type="checkbox"] {
+.tawo-button input[type="checkbox"] {
     visibility:hidden;
     position: absolute;
 }
 
-.buttoni label {
-    cursor: pointer;
-    position: relative;
-    text-align:center;
-    border: 1px solid #d5d5d5;
+.tawo-button input[type="checkbox"]:checked + label  {
+    color:white;
+}
+
+.tawo-button label {
+    padding: 10px 0 10px 26px;
+    border: 1px solid #656565;
     border-radius:3px;
+    width:100%;
+    transition:background 0.5s;
 }
 
-.uhrzeit label {
-    width:94%;
-    padding:4px 1%;
+.tawo-button input[type="checkbox"]+label:before{
+    left:10px;
 }
 
-.wochentag label {
-    width:93%;
-    padding:4px 0;
-}
-.buttoni label:hover {
-    background:#d5d5d5;
-    color:black;
+.tawo-button input[type="checkbox"]:checked + label:after {
+    left:10px;
 }
 
-.buttoni input[type="checkbox"]:checked + label  {
-        background:#d5d5d5;
-    color:black;
+.tawo-button input[type="checkbox"]:checked+label:after {
+    background-color:white;
 }
 
+.tawo-button input[type="checkbox"] + label:before {
+    background:none;
+    border:none;
+}
 // POPUP TIME
 
 .mapboxgl-popup-content {
@@ -581,5 +463,3 @@
   margin-right: 10px;
   }
 }
-
-
