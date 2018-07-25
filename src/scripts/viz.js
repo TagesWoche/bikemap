@@ -7,12 +7,18 @@ mapboxgl.accessToken =  'pk.eyJ1IjoidGFnZXN3b2NoZSIsImEiOiJjamp0cHc2ZTIwOWtiM3Bx
 
 // mapboxgl.accessToken = 'pk.eyJ1IjoiYmVybGluZXJtb3JnZW5wb3N0IiwiYSI6Ik93Q3pCbWsifQ.-e0ddIaG2WuJdsA-TLeX5A'; //Berlin Morgenpost
 
-var filterObject = {'severity': 'all', 'accidentype': 'Alle Unfälle' };
+var filterObject = {
+    'severity': ['Unfall mit Leichtverletzten', 'Unfall mit Schwerverletzten', 'Unfall mit Getöteten'], 
+    'accidentype': 'Alle Unfälle',
+    'day': ['Wochentag', 'Wochenende'],
+    'daytime': ['morgens', 'mittags', 'abends', 'nachts'],
+    'year': 'Alle Jahre'
+};
 
 // Create a dropdown
 const accidenttypes = ['Alle Unfälle', 'Parkierunfall', 'Einbiegeunfall', 'Abbiegeunfall'];
-
 const accidenttypeMenu = select("#accidenttypeMenu");
+
 
 accidenttypeMenu.append("select").selectAll("option")
     .data(accidenttypes).enter().append("option")
@@ -26,18 +32,45 @@ accidenttypeMenu.on('change', function() {
 
     filterObject.accidentype = selectedAccident;
     updateFilters();
-    console.log(filterObject);
 
     });
 
-const accidentDay = selectAll("input[name='accidentday']").on("change", function() {
-    console.log(this.value);
+const severity = selectAll("input[name='severity']").on("change", function() {
+    var index = filterObject.severity.indexOf(this.value)
+    if (index > -1) {
+        filterObject.severity.splice(index, 1);
+    } else {
+        filterObject.severity.push(this.value);
+    }
+
+    updateFilters();
+
 });
 
-const severity = selectAll("input[name='severity']").on("change", function() {
-    filterObject.severity = this.value;
+const day = selectAll("input[name='day']").on("change", function() {
+    var index = filterObject.day.indexOf(this.value)
+    if (index > -1) {
+        filterObject.day.splice(index, 1);
+    } else {
+        filterObject.day.push(this.value);
+    }
+
     updateFilters();
+
+});
+
+const daytime = selectAll("input[name='daytime']").on("change", function() {
+    var index = filterObject.daytime.indexOf(this.value)
+    if (index > -1) {
+        filterObject.daytime.splice(index, 1);
+    } else {
+        filterObject.daytime.push(this.value);
+    }
+
     console.log(filterObject);
+
+    updateFilters();
+
 });
 
 const map = new mapboxgl.Map({
@@ -58,15 +91,15 @@ map.on('style.load', function () {
     mapCanvas.style.height = '100vh';
     map.resize();
 
-    map.addSource('all_accidents', {
+    map.addSource('all_bikeaccidents', {
     type: 'vector',
-    url: 'mapbox://felixmichel.cjjzrdwxm03d92vnvcgajbo6k-03u8i'
+    url: 'mapbox://felixmichel.cjk142efq0ror2vrk7avo49r6-7ap71'
     });
     map.addLayer({
-        'id': 'all_accidents',
+        'id': 'all_bikeaccidents',
         'type': 'circle',
-        'source': 'all_accidents',
-        'source-layer': 'all_accidents',
+        'source': 'all_bikeaccidents',
+        'source-layer': 'all_bikeaccidents',
         'layout': {
             'visibility': 'visible'
         },
@@ -83,20 +116,34 @@ map.on('style.load', function () {
             },
             'circle-blur': 1
         },
-        'source-layer': 'all_accidents'
+        'source-layer': 'all_bikeaccidents'
     });
 });
 
-const layerIds = [ 'all_accidents', 'export_15-16-17', 'bike_hotspots_circles' ];
+const layerIds = [ 'all_bikeaccidents', 'export_15-16-17', 'bike_hotspots_circles' ];
 
 function updateFilters() {
-    let severityFilter;
     let accidentTypeFilter;
+    let severityFilter;
+    let dayFilter;
+    let dayTimeFilter;
 
-    if(filterObject.severity == 'all') {
-        severityFilter = ['!=', ['string', ['get', 'severity']], filterObject.severity];
+    if(filterObject.daytime.length > 0) {
+        dayTimeFilter = ['match', ['get', 'timefilter'], filterObject.daytime, true, false];
     } else {
-        severityFilter = ['==', ['string', ['get', 'severity']], filterObject.severity];
+        dayTimeFilter = ['==', ['string', ['get', 'timefilter']], 'none'];
+    }
+
+    if(filterObject.severity.length > 0) {
+        severityFilter = ['match', ['get', 'severity'], filterObject.severity, true, false];
+    } else {
+        severityFilter = ['==', ['string', ['get', 'severity']], 'none'];
+    }
+
+    if(filterObject.day.length > 0) {
+        dayFilter = ['match', ['get', 'weekyday'], filterObject.day, true, false];
+    } else {
+        dayFilter = ['==', ['string', ['get', 'weekyday']], 'none'];
     }
 
     if(filterObject.accidentype == 'Alle Unfälle') {
@@ -105,61 +152,43 @@ function updateFilters() {
         accidentTypeFilter = ['==', ['string', ['get', 'accidenttype']], filterObject.accidentype];
     }
 
-    map.setFilter(layerIds[0], ['all', severityFilter, accidentTypeFilter]);
-
+    map.setFilter(layerIds[0], ['all', severityFilter, accidentTypeFilter, dayFilter, dayTimeFilter]);
 }
 
-function filterbyAccidenttype(accident) {
-    if(accident == 'Alle Unfälle') {
-        map.setFilter(layerIds[0], ['all']);
-    } else {
-        map.setFilter(layerIds[0], ['==', ['string', ['get', 'accidenttype']], accident]);
-    }
-};
-
-function filterbySeverity(accident) {
-    if(accident == 'all') {
-        map.setFilter(layerIds[0], ['all']);
-    } else {
-        map.setFilter(layerIds[0], ['==', ['string', ['get', 'severity']], accident]);
-    }
-    
-};
-
 // Create a popup, but don't add it to the map yet.
-    var popup = new mapboxgl.Popup({
-        closeButton: false,
-        closeOnClick: true
-        // offset: [50, 10]
-    });
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: true
+    // offset: [50, 10]
+});
 
-    map.on('mouseenter', layerIds[0], function(e) {
-        console.log(e.features[0].properties);
-        // Change the cursor style as a UI indicator.
-        map.getCanvas().style.cursor = 'pointer';
+map.on('mouseenter', layerIds[0], function(e) {
+    console.log(e.features[0].properties);
+    // Change the cursor style as a UI indicator.
+    map.getCanvas().style.cursor = 'pointer';
 
-        var coordinates = e.features[0].geometry.coordinates.slice();
+    var coordinates = e.features[0].geometry.coordinates.slice();
 
-        var accidenttype = e.features[0].properties.accidenttype;
-        var severity = e.features[0].properties.severity;
-        var time = e.features[0].properties.day.trim() + ', ' + e.features[0].properties.time.trim() + ', ' + e.features[0].properties.year;
+    var accidenttype = e.features[0].properties.accidenttype;
+    var severity = e.features[0].properties.severity;
+    var time = e.features[0].properties.day.trim() + ', ' + e.features[0].properties.time.trim() + ', ' + e.features[0].properties.year;
 
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
+    // Ensure that if the map is zoomed out such that multiple
+    // copies of the feature are visible, the popup appears
+    // over the copy being pointed to.
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
 
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        popup.setLngLat(coordinates)
-            .setHTML('<h2>' + severity + '</h2><p class="popup-accidenttype">' + accidenttype + '</p><p class="popup-time">' + time + '</p>')
-            .addTo(map);
-    });
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup.setLngLat(coordinates)
+        .setHTML('<h2>' + severity + '</h2><p class="popup-accidenttype">' + accidenttype + '</p><p class="popup-time">' + time + '</p>')
+        .addTo(map);
+});
 
 
-    map.on('mouseleave', layerIds[0], function() {
-        map.getCanvas().style.cursor = '';
-        popup.remove();
-    });
+map.on('mouseleave', layerIds[0], function() {
+    map.getCanvas().style.cursor = '';
+    popup.remove();
+});
