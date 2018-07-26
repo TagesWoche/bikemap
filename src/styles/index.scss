@@ -33,7 +33,7 @@
   text-indent: 1px;
   text-overflow: '';
   font-size: 16px;
-  color: #d5d5d5;
+  color: #fff;
   padding:10px;
 }
  
@@ -204,9 +204,10 @@
 #filteroverlay {
     max-width:500px;
     display:grid;
-    grid-template-columns:3fr 2fr;
+    grid-template-columns:1fr 1fr;
     grid-template-rows: auto;
     grid-column-gap: 20px;
+    
     grid-template-areas: 
         "closelegend closelegend"
         "title title"
@@ -218,7 +219,7 @@
     color: white;
     position: absolute;
     margin: 0;
-    padding: 10px 20px 30px 20px;
+    padding: 10px 10px 30px 10px;
     background: #121212;
         & h2 {
             font-size: ms(5);
@@ -227,9 +228,10 @@
             padding: 36px 0 0 5px;
         }
             @include breakpoint($breakpoint--m) {
-            margin: 10px;
-            min-width: 300px;
-            min-height: 300px;
+                margin: 10px;
+                grid-template-columns:3fr 2fr;
+                grid-auto-flow: row;
+                padding: 10px 20px 30px 20px;
         }
 }
 
@@ -257,12 +259,26 @@
 }
 .wochentag {
     grid-area:wochentag;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    grid-column-gap:12px;
+    display:flex;
+    flex-direction: column;
+    @include breakpoint($breakpoint--m) {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            grid-column-gap:12px;
+            grid-auto-flow: row;
+    }
 } 
+
+
 .unfallschwere {
     grid-area:unfallschwere;
+}
+
+.unfallschwere .tawo-checkbox {
+    margin:0;
+     @include breakpoint($breakpoint--m) {
+         margin: 6px 15px 6px 0;
+    }
 }
 .uhrzeit {
     grid-area:uhrzeit;
@@ -411,6 +427,14 @@
     transition:background 0.5s;
 }
 
+.wochentag label {
+    
+    margin-bottom:10px;
+     @include breakpoint($breakpoint--m) {
+         
+    }
+}
+
 .tawo-button input[type="checkbox"]+label:before{
     left:10px;
 }
@@ -465,4 +489,10 @@
   width: 25px;
   margin-right: 10px;
   }
+}
+
+@media screen and (max-width:769px) {
+    #filteroverlay label, #filteroverlay select {font-size:14px;}
+    #filteroverlay h3 {font-size: 16px; font-weight: bold; margin: 18px 0 8px 0;}
+    #filteroverlay h2 {padding:17px 0 0 5px;}
 }
