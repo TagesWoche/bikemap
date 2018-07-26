@@ -6,7 +6,8 @@
 @mixin profil-form-field {
   background: white;
   border: 1px solid $color__black;
-  @include NeueHaasGrotDisp-55Roman-Web;
+  font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
+  font-weight: 400;
   font-size: ms(3);
   color: $color__black;
   border-radius: 3px;
@@ -51,7 +52,8 @@
   }
 
   label {
-    @include NeueHaasGrotDisp-55Roman-Web;
+    font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
+    font-weight: 400;
     color: $color__gray;
     font-size: ms(0);
     line-height: ms(2);
@@ -135,8 +137,8 @@
 
   .profil-form__input--text {
 
-    @include NeueHaasGrotDisp-55Roman-Web;
-
+    font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
+    font-weight: 400;
     position: relative;
     padding-left: 40px;
     display: flex;
@@ -206,7 +208,8 @@
 
   .profil-form__input--text {
 
-    @include NeueHaasGrotDisp-55Roman-Web;
+    font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
+    font-weight: 400;
 
     position: relative;
     padding-left: 40px;
@@ -337,7 +340,8 @@
     //padding: 0.625rem 1.25rem;
     /* 10px 20px */
 
-    @include NeueHaasGrotDisp-65Medium-Web;
+    font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
+    font-weight: 400;
     color: $color__white;
   }
 

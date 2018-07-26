@@ -9,7 +9,7 @@ const ExtractSASS = new ExtractTextPlugin('styles/bundle.css');
 
 module.exports = merge(common, {
   mode: 'production',
-  devtool: 'source-map',
+  devtool: 'eval',
   stats: 'errors-only',
   optimization: {
     minimize: true

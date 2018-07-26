@@ -1,15 +1,12 @@
-import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
 import enterView from 'enter-view';
 import { select } from 'd3-selection';
 
-// mapboxgl.accessToken =  'pk.eyJ1IjoiZmVsaXhtaWNoZWwiLCJhIjoiZWZrazRjOCJ9.62fkOEqGMxFxJZPJuo2iIQ';
-
-mapboxgl.accessToken = 'pk.eyJ1IjoiYmVybGluZXJtb3JnZW5wb3N0IiwiYSI6Ik93Q3pCbWsifQ.-e0ddIaG2WuJdsA-TLeX5A';
+mapboxgl.accessToken = 'pk.eyJ1IjoidGFnZXN3b2NoZSIsImEiOiJjamp0cHc2ZTIwOWtiM3BxaDU3aG44endjIn0.X3Tgu7aJyY0t-95wu518fQ';
 
 const map = new mapboxgl.Map({
     container: 'mapScrolly',
-    style: 'mapbox://styles/berlinermorgenpost/cjgqes6dr007r2rsbql0cy3my',
+    style: 'mapbox://styles/tageswoche/cjjtq37gn01v32sqm5cv1004c',
     zoom: 13,
     center: [7.588576,47.559648],
     scrollZoom      : false,
