@@ -97,7 +97,7 @@ const map = new mapboxgl.Map({
     zoom: 13,
     center: [7.588576,47.559648],
     scrollZoom      : false,
-    boxZoom         : false,
+    boxZoom         : true,
     doubleClickZoom : false
 });
 
@@ -138,6 +138,9 @@ map.on('style.load', function () {
 });
 
 const layerIds = [ 'all_bikeaccidents', 'export_15-16-17', 'bike_hotspots_circles' ];
+
+var nav = new mapboxgl.NavigationControl();
+map.addControl(nav, 'top-right');
 
 function updateFilters() {
     let accidentTypeFilter;

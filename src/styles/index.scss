@@ -453,27 +453,28 @@
 }
 
 .mapboxgl-ctrl-bottom-left {
+  @include breakpoint($breakpoint--m) {
     bottom:18px !important;
     right:5px !important;
     left: auto !important;
+  }
 }
+
 // POPUP TIME
 
+.mapboxgl-popup {
+  z-index: 10000 !important;
+}
 .mapboxgl-popup-content {
   min-width: 250px;
   border-radius: 0 !important;
-    color:white;
+  color:white;
   background: rgba(18,18,18,0.8) !important;
   padding:0 10px 15px 10px !important;
   border: 1px solid #4f4f4f;
-    border-top: 5px solid #4f4f4f;
-//    border-bottom: 2px solid #4f4f4f;
-    box-shadow: none !important;
-//    border-bottom-right-radius: 15px !important;
-//    border-bottom-left-radius: 15px !important;
+  border-top: 5px solid #4f4f4f;
+  box-shadow: none !important;
 }
-
-
 
 .mapboxgl-popup-content h2{
     margin:8px 0 14px 0;
@@ -495,11 +496,10 @@
   display: inline-block;
   content: ' ';
   background-color:white;
-    mask:url('../../src/img/wheel.svg') no-repeat;
-    -webkit-mask:url('../../src/img/wheel.svg') no-repeat;
-      mask-size:contain;
-      -webkit-mask-size:contain;
-  
+  mask:url('../../src/img/wheel.svg') no-repeat;
+  -webkit-mask:url('../../src/img/wheel.svg') no-repeat;
+  mask-size:contain;
+  -webkit-mask-size:contain;
   height: 30px;
   width: 30px;
   margin-right: 10px;
@@ -513,10 +513,10 @@
   display: inline-block;
   content: ' ';
   background-color:white;
-    mask:url('../../src/img/clock.svg') no-repeat;
-    -webkit-mask:url('../../src/img/clock.svg') no-repeat;
-      mask-size:contain;
-    -webkit-mask-size:contain;
+  mask:url('../../src/img/clock.svg') no-repeat;
+  -webkit-mask:url('../../src/img/clock.svg') no-repeat;
+  mask-size:contain;
+  -webkit-mask-size:contain;
   height: 28px;
   width: 30px;
   margin-right: 10px;
@@ -527,8 +527,8 @@
     #filteroverlay label, #filteroverlay select {font-size:14px;}
     #filteroverlay h3 {font-size: 16px; font-weight: bold; margin: 8px 0 8px 0;}
     #filteroverlay h2 {padding:17px 0 0 5px;}
-    #filteroverlay svg, .wochentag, .uhrzeit, h2 {display:none;}
+    #filteroverlay svg, .wochentag, .uhrzeit, #filteroverlay h2 {display:none;}
     .title {grid-template-columns: 1fr;}
-    #filteroverlay {padding-top:0; border-top:5px solid #4f4f4f;}
+    #filteroverlay {padding-top:0; border-top:5px solid #4f4f4f; max-width: 100%}
     .unfallschwere {grid-row-start: 1; grid-row-end: 5;}
 }
