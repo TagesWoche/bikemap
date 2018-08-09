@@ -105,7 +105,7 @@
 
 }
 #scrolly-overlay .scrolly article .step {
-  min-height: 95vh;
+  height: 150vh;
 }
 #scrolly-overlay .scrolly article .step:last-of-type {
   margin-bottom: 0;
@@ -116,10 +116,11 @@
 }
 #scrolly-overlay .scrolly article .step p {
     opacity: 1;
-    font-size: 32px;
+    font-size: 20px;
+    line-height: 1.4;
     color: white;
     font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     font-style: normal;
     font-stretch: normal;
     margin: 0;
@@ -128,15 +129,19 @@
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
     transition: opacity 500ms ease-in-out;
     font-weight:normal;
+    @include breakpoint($breakpoint--m) {
+      font-size: 24px;
+    }
 }
 
 #scrolly-overlay .scrolly article .step p span {
-    font-weight:bold;
+    font-size: 22px;
+    font-weight:700;
     margin-bottom:15px;
-    line-height:36px;
-    padding: 1rem 0;
-    background:#161616;
-    text-shadow: none;
+    line-height: 1.2;
+     @include breakpoint($breakpoint--m) {
+      font-size: 26px;
+    }
 }
 
 #scrolly-overlay .scrolly .sticky {
@@ -202,41 +207,43 @@
 
 
 #filteroverlay {
-    max-width:500px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    grid-template-rows: auto;
-    grid-column-gap: 20px;
-    padding-top:0; border-top:5px solid #4f4f4f;
-    grid-template-areas: 
-        "closelegend closelegend"
-        "title title"
-        "unfallschwere unfallart"
-        "wochentag jahre"
-        "uhrzeit uhrzeit";
-    bottom:0;
-    font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
-    color: white;
-    position: absolute;
-    margin: 0;
-    padding: 10px 10px 30px 10px;
-    background: #121212;
-        & h2 {
-            font-size: ms(5);
-            line-height: 1.2;
-            margin:0;
-            padding: 36px 0 0 5px;
-        }
-            @include breakpoint($breakpoint--m) {
-                margin: 10px;
-                grid-template-columns:3fr 2fr;
-                grid-auto-flow: row;
-                padding: 10px 20px 30px 20px;
-        }
+  opacity: 0;
+  max-width:500px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: 20px;
+  padding-top:0; border-top:5px solid #4f4f4f;
+  grid-template-areas: 
+      "closelegend closelegend"
+      "title title"
+      "unfallschwere unfallart"
+      "wochentag jahre"
+      "uhrzeit uhrzeit";
+  bottom:0;
+  font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
+  color: white;
+  position: absolute;
+  margin: 0;
+  padding: 10px 10px 30px 10px;
+  background: #121212;
+  & h2 {
+      font-size: ms(5);
+      line-height: 1.2;
+      margin:0;
+      padding: 36px 0 0 5px;
+    }
+  @include breakpoint($breakpoint--m) {
+      margin: 10px;
+      grid-template-columns:3fr 2fr;
+      grid-auto-flow: row;
+      padding: 10px 20px 30px 20px;
+    }
 }
 
 #filteroverlay h3 {
-    font-weight:normal;
+  margin-bottom: 0.3em;
+  margin-top: 0.5em;
 }
 
 
@@ -245,10 +252,12 @@
     display:grid;
     grid-template-columns:auto 30px;
 }
+
 .closelegend p {
     justify-self:right;
     margin:0 0 8px 0;
 }
+
 .title {
     grid-area:title;
     display:none;
@@ -296,7 +305,6 @@
     
 }
 
-
 /* Checkboxes */
 
 .tawo-checkbox {
@@ -305,7 +313,7 @@
     margin: 6px 15px 6px 0;
     color: #2a2a2a;
     display: inline-block;
-//    border: 1px solid #000;
+//  border: 1px solid #000;
     border-radius: 8px;
     color: #d5d5d5;
     padding:7px;
@@ -391,65 +399,61 @@
 
 
 .tawo-checkbox input[type="checkbox"]+label:before, .tawo-button input[type="checkbox"]+label:before {
-        background-color: rgba(226, 230, 229, 0.5);
-        border-radius: 10px
-    }
+  background-color: rgba(226, 230, 229, 0.5);
+  border-radius: 10px
+}
 
 .tawo-checkbox *, .tawo-button * {
-    user-select: none;
+  user-select: none;
 }
 
 // Buttons Styling Test
 .uhrzeit h3 {
-    grid-column-start: 1;
-    grid-column-end: 5;
+  grid-column-start: 1;
+  grid-column-end: 5;
 }
 
 .wochentag h3 {
-    grid-column-start: 1;
-    grid-column-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 .tawo-button input[type="checkbox"] {
-    visibility:hidden;
-    position: absolute;
+  visibility:hidden;
+  position: absolute;
 }
 
 .tawo-button input[type="checkbox"]:checked + label  {
-    color:white;
+  color:white;
 }
 
 .tawo-button label {
-    padding: 10px 0 10px 26px;
-    border: 1px solid #656565;
-    border-radius:3px;
-    width:100%;
-    transition:background 0.5s;
+  padding: 10px 0 10px 26px;
+  border: 1px solid #656565;
+  border-radius:3px;
+  width:100%;
+  transition:background 0.5s;
 }
 
 .wochentag label {
-    
-    margin-bottom:10px;
-     @include breakpoint($breakpoint--m) {
-         
-    }
+  margin-bottom:10px;
 }
 
 .tawo-button input[type="checkbox"]+label:before{
-    left:10px;
+  left:10px;
 }
 
 .tawo-button input[type="checkbox"]:checked + label:after {
-    left:10px;
+  left:10px;
 }
 
 .tawo-button input[type="checkbox"]:checked+label:after {
-    background-color:white;
+  background-color:white;
 }
 
 .tawo-button input[type="checkbox"] + label:before {
-    background:none;
-    border:none;
+  background:none;
+  border:none;
 }
 
 .mapboxgl-ctrl-bottom-left {
@@ -463,7 +467,7 @@
 // POPUP TIME
 
 .mapboxgl-popup {
-  z-index: 10000 !important;
+  z-index: 1000000 !important;
 }
 .mapboxgl-popup-content {
   min-width: 250px;
@@ -478,6 +482,7 @@
 
 .mapboxgl-popup-content h2{
     margin:8px 0 14px 0;
+    font-size: 1.5em;
 }
 
 .mapboxgl-popup-content p {
@@ -532,3 +537,101 @@
     #filteroverlay {padding-top:0; border-top:5px solid #4f4f4f; max-width: 100%}
     .unfallschwere {grid-row-start: 1; grid-row-end: 5;}
 }
+
+.featured-stage__background:after {
+  content: none;
+}
+
+.mapboxgl-ctrl-top-left {
+  display: none;
+  @include breakpoint($breakpoint--m) {
+    display: block;
+    top: 75px;
+  }
+}
+
+.featured-stage .entry-header {
+  transition-duration: 1s;
+  opacity: 1;
+}
+
+.oversize {
+  width: 100vw;
+  margin-left: calc(-100vw / 2 + 90vw / 2);
+  margin-right: calc(-100vw / 2 + 90vw / 2);
+  @include breakpoint($breakpoint--m) {
+    margin-left: calc(-100vw / 2 + 700px / 2);
+    margin-right: calc(-100vw / 2 + 700px / 2);
+  }
+
+  @include breakpoint($breakout__width--xl) {
+    margin: 0 auto;
+    width: 1440px;
+    margin-left: -370px;
+  }
+
+}
+
+.step-picture {
+  max-width: 100%;
+}
+
+.step-picture-legend {
+  color: white !important;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
+  font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
+}
+
+/*barchart*/
+
+.wrapper {
+  width: 100%;
+}
+
+.axis--x path {
+  display: none;
+}
+
+.axis--y path {
+  stroke: black;
+}
+
+.axis--y line {
+  stroke: black;
+}
+
+.axis--y .tick text {
+  font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
+  fill: black;
+  alignment-baseline: text-after-edge;
+  font-size: 14px;
+  /*@include MQ(S) {
+    font-size: 12px;
+  }*/
+}
+
+.axis--x text {
+  font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
+  fill: black;
+
+}
+
+.bar-value {
+  font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
+  fill: black;
+  font-weight: 700;
+  font-size: 14px;
+
+}
+
+.chart-title text {
+  font-size: 20px;
+  font-family: 'Haas Grot Disp Web', 'Arial', sans-serif;
+  font-weight: 700;
+}
+
+.barchart-label {
+  font-size: 14px;
+}
+
+
