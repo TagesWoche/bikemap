@@ -53,32 +53,6 @@ map.on('style.load', function () {
         'source-layer': 'bike_hotspots_circles'
     });
 
-    // map.addSource('export_15-16-17', {
-    //     type: 'vector',
-    //     url: 'mapbox://felixmichel.cjj5e2lgw052i31pryb6gbnal-19fbl'
-    // });
-    // map.addLayer({
-    //     'id': 'export_15-16-17',
-    //     'type': 'circle',
-    //     'source': 'export_15-16-17',
-    //     'source-layer': 'export_15-16-17',
-    //     'layout': {
-    //         'visibility': 'visible'
-    //     },
-    //     'paint': {
-    //         'circle-opacity': 0,
-    //         'circle-opacity-transition': {
-    //             duration: transition_time
-    //         },
-    //         'circle-radius': 3,
-    //         'circle-color': {
-    //             property: 'severity_c',
-    //             stops: [[1, '#B907E8'], [2, '#8808FF']]
-    //         },
-    //     },
-    //     'source-layer': 'export_15-16-17'
-    // });
-
     map.addSource('all_bikeaccidents', {
     type: 'vector',
     url: 'mapbox://felixmichel.cjkibbowh0znk2vqs3yr04986-07tcl'
@@ -149,7 +123,7 @@ function changeOpacity(index) {
         case 5:
             map.flyTo({center: [7.588576,47.555], zoom: 13});
             map.setFilter(layerIds[0], ['all', ['match', ['get', 'hotspots'], [1,2], true, false], ['match', ['get', 'year'], [2015,2016,2017], true, false]]);
-            map.setPaintProperty(layerIds[2], 'circle-stroke-opacity', 1);
+            map.setPaintProperty(layerIds[1], 'circle-stroke-opacity', 1);
             map.setFilter(layerIds[1], ['match', ['get', 'hotspot'], ['true', 'false'], true, false]);
 
             break;

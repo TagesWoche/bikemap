@@ -105,7 +105,7 @@ const daytime = selectAll("input[name='daytime']").on("change", function() {
 
 const map = new mapboxgl.Map({
     container: 'mapViz',
-    style: 'mapbox://styles/tageswoche/cjjtq37gn01v32sqm5cv1004c',
+    style: 'mapbox://styles/tageswoche/cjjtq37gn01v32sqm5cv1004c?optimize=true',
     zoom: 13,
     center: [7.588576,47.559648],
     scrollZoom      : false,
